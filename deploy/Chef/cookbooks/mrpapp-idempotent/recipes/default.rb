@@ -5,21 +5,21 @@
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
 # Runs apt-get update
-include_recipe "apt"
+include_recipe 'apt'
 
 # Add the Open JDK apt repo
 apt_repository 'openJDK' do
-    uri 'ppa:openjdk-r/ppa'
-    distribution 'trusty'
+  uri 'ppa:openjdk-r/ppa'
+  distribution 'trusty'
 end
 
 # Install JDK and JRE
 apt_package 'openjdk-8-jdk' do
-    action :install
+  action :install
 end
 
 apt_package 'openjdk-8-jre' do
-    action :install
+  action :install
 end
 
 # Set Java environment variables
@@ -28,12 +28,12 @@ ENV['PATH'] = "#{ENV['PATH']}:/usr/lib/jvm/java-8-openjdk-amd64/bin"
 
 # Install MongoDB
 apt_package 'mongodb' do
-    action :install
+  action :install
 end
 
 # Install Tomcat 7
 apt_package 'tomcat7' do
-    action :install
+  action :install
 end
 
 # Load MongoDB data 
